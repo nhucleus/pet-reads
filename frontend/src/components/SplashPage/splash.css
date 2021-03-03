@@ -1,0 +1,25 @@
+.splash__div_container{
+    width: 100%;
+    background-attachment: absolute;
+    background: url(kittens2.png);
+    background-size: cover;
+    background-position: top;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash__div_container h1{
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0,0,0,.5);
+}
