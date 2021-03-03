@@ -1,0 +1,16 @@
+.signup__div_container{
+    width: 100%;
+    background-attachment: absolute;
+    background: url(puppies.png);
+    background-size: cover;
+    background-position: top;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
