@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import {RiLockPasswordFill} from "react-icons/ri";
+import {MdEmail} from 'react-icons/md';
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -33,20 +35,22 @@ function LoginFormPage() {
             ))}
           </ul>
           <label>
-            Username or Email
+            <MdEmail />
             <input
               type="text"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
+              placeholder="Email/Username"
               required
             />
           </label>
           <label>
-            Password
+            <RiLockPasswordFill />
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="password"
               required
             />
           </label>
