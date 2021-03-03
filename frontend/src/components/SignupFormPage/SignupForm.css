@@ -19,8 +19,17 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    height: 35vh;
+    height: 45vh;
     width: 50vh;
     border-radius: 20%;
     background: rgba(255,255,255,.7);
+}
+
+.signup__form_container label{
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.signup__form_container button{
+    height: 4vh;
 }
