@@ -14,3 +14,13 @@
     justify-content: center;
     align-items: center;
 }
+
+.login__form_container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 30vh;
+    width: 50vh;
+    border-radius: 20%;
+    background: rgba(255,255,255,.7);
+}
