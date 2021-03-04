@@ -3,10 +3,19 @@
 }
 
 .navbar {
-  background-color: rgb(51, 138, 150);
+  background-color: #128ced;
   display: flex;
   padding: 15px 20px;
+  height: 50px;
   justify-content: space-between;
+  align-items: center;
+  /* box-shadow: 0px -1px 22px 14px rgba(187,187,187,0.69); */
+}
+
+.navbar-title {
+  font-family: "Chewy", cursive;
+  font-size: 25px;
+  letter-spacing: 1px;
 }
 
 .navbar-link {
@@ -19,15 +28,21 @@
 }
 
 .navbar-link:hover {
-  color: rgb(255, 155, 130);
+  color: rgb(225, 225, 225);
 }
 
 .navbar-link:hover:active {
-  color: rgb(245, 132, 104);
+  color: rgba(225, 225, 225, 0.726);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-right {
   display: flex;
+  align-items: center;
 }
 
 .navbar-link a {
@@ -36,9 +51,24 @@
 }
 
 .navbar-link a:hover {
-  color: rgb(255, 155, 130);
+  color: rgb(225, 225, 225);
 }
 
 .navbar-link a:hover:active {
-  color: rgb(245, 132, 104);
+  color: rgb(225, 225, 225, 0.726);
+}
+
+.navbar-title {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-title-container:hover {
+  color: rgb(225, 225, 225);
+}
+
+.dog-icon {
+  font-size: 26px;
+  margin-right: 5px;
+  margin-top: -6px;
 }

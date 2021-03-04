@@ -1,25 +1,67 @@
-.splash__div_container{
-    width: 100%;
-    background-attachment: absolute;
-    background: url(kittens2.png);
-    background-size: cover;
-    background-position: top;
-    top: 50px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.splash-container {
+  width: 100%;
+  background-attachment: absolute;
+  background: url(pets.jpg);
+  background-size: cover;
+  background-position: top;
+  top: 48px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.splash__div_container h1{
-    color: white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(0,0,0,.5);
+.splash-container h1 {
+  font-family: "Chewy", cursive;
+  color: #ef6c00;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 65px;
+}
+
+.splash-slogan {
+  width: 225px;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.splash-form-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.splash-login-link {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #ef6c00;
+  height: 40px;
+  line-height: 40px;
+  width: auto;
+  margin: 10px 0px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.splash-input {
+  height: 45px;
+  font-size: 20px;
+  border: 1px solid rgb(164, 164, 164);
+}
+
+.splash-input::placeholder {
+  text-align: center;
+}
+
+.splash-input:focus {
+  border: 1px solid #f8d81c;
 }

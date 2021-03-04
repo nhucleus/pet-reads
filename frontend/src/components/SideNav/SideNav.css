@@ -1,0 +1,40 @@
+.side-nav-container {
+  position: fixed;
+  left: 0;
+  top: 100px;
+  width: 230px;
+  height: 100%;
+  border-right: 3px solid #ef6c00;
+}
+
+.sort-nav-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #128ced;
+}
+
+.sort-nav-title {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.sort-menu {
+  position: absolute;
+  right: 150px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.sort-arrow {
+  font-size: 24px;
+  font-weight: 600;
+  color: #f8d81c;
+}
