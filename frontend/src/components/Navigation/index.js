@@ -1,35 +1,37 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
-// import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
+import * as sessionActions from "../../store/session";
+
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
 
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-      <ProfileButton user={sessionUser} />
-    );
-  } else {
-    sessionLinks = (
-      <>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-      </>
-    );
-  }
+  const credential = "Demo-lition";
+  const password = "password";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    return dispatch(sessionActions.login({ credential, password }))
+  };
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/home">Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <div className="navbar">
+      <div className="navbar-left">
+        <div className="navbar-link">
+          <NavLink exact to="/">PetReads</NavLink>
+        </div>
+      </div>
+      <div className="navbar-right">
+        {isLoaded && !sessionUser && <div className="navbar-link" onClick={handleSubmit}>Demo Login</div>}
+        {isLoaded && !sessionUser && <div className="navbar-link"><NavLink to="/login">Login</NavLink></div>}
+        {isLoaded && !sessionUser && <div className="navbar-link"><NavLink to="/signup">Sign Up</NavLink></div>}
+        {isLoaded && sessionUser && <div className="navbar-link"><ProfileButton user={sessionUser} /></div>}
+      </div>
+    </div>
   );
-}
+};
 
 export default Navigation;

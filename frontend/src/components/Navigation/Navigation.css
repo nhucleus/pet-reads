@@ -1,3 +1,44 @@
 .profile-dropdown {
   position: absolute;
 }
+
+.navbar {
+  background-color: rgb(51, 138, 150);
+  display: flex;
+  padding: 15px 20px;
+  justify-content: space-between;
+}
+
+.navbar-link {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0px 10px;
+}
+
+.navbar-link:hover {
+  color: rgb(255, 155, 130);
+}
+
+.navbar-link:hover:active {
+  color: rgb(245, 132, 104);
+}
+
+.navbar-right {
+  display: flex;
+}
+
+.navbar-link a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-link a:hover {
+  color: rgb(255, 155, 130);
+}
+
+.navbar-link a:hover:active {
+  color: rgb(245, 132, 104);
+}
