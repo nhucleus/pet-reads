@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Book.belongsTo(models.Author, { foreignKey: 'authorId' });
     Book.belongsTo(models.Species, { foreignKey: 'speciesId' });
-    Book.hasMany(models.Review, { foreignKey: 'bookId' });
   };
   return Book;
 };

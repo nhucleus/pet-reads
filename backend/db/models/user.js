@@ -54,15 +54,15 @@ module.exports = (sequelize, DataTypes) => {
           attributes: {}
         }
       }
-    }
+    },
   );
   User.associate = function (models) {
     // associations can be defined here
   };
   User.prototype.toSafeObject = function () {
     // remember, this cannot be an arrow function
-    const { id, username, email } = this; // context will be the User instance
-    return { id, username, email };
+    const { id, fullName, username, email } = this; // context will be the User instance
+    return { id, fullName, username, email };
   };
 
   User.prototype.validatePassword = function (password) {
@@ -88,9 +88,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
 
-  User.signup = async function ({ username, email, password }) {
+  User.signup = async function ({ fullName, username, email, password }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
+      fullName,
       username,
       email,
       hashedPassword

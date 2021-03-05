@@ -27,6 +27,8 @@
 
 .sort-menu {
   position: absolute;
+  display: flex;
+
   right: 150px;
   color: white;
   font-size: 20px;
@@ -35,6 +37,12 @@
 
 .sort-arrow {
   font-size: 24px;
+  margin-left: 2px;
   font-weight: 600;
   color: #f8d81c;
+}
+
+.species-names {
+  cursor: pointer;
+  font-weight: 600;
 }

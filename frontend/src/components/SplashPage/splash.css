@@ -1,9 +1,10 @@
 .splash-container {
   width: 100%;
   background-attachment: absolute;
-  background: url(pets.jpg);
+  background: url(splash.jpg);
   background-size: cover;
-  background-position: top;
+  background-position: center center;
+  background-repeat: no-repeat;
   top: 48px;
   left: 0;
   bottom: 0;
