@@ -1,0 +1,38 @@
+.book-card-container {
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 10px;
+  min-width: 250px;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.book-card-cover {
+  margin: 10px 10px;
+  width: 150px;
+  height: 200px;
+  border: 1px solid rgb(225, 225, 225);
+}
+
+.book-card-container:hover {
+  filter: brightness(95%);
+}
+
+.book-card-title {
+  margin-top: 0px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: rgb(41, 41, 41);
+}
+
+.book-card-author {
+  font-style: italic;
+}

@@ -34,6 +34,9 @@ module.exports = {
       bookCover: {
         type: Sequelize.STRING
       },
+      avgRating: {
+        type: Sequelize.DECIMAL(10, 2)
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

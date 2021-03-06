@@ -9,7 +9,10 @@
   height: 50px;
   justify-content: space-between;
   align-items: center;
-  /* box-shadow: 0px -1px 22px 14px rgba(187,187,187,0.69); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .navbar-title {

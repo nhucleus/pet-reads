@@ -1,25 +1,49 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Book } = require("../../db/models");
+const { Book, Author } = require("../../db/models");
 
 const router = express.Router();
 
-router.get("/species/:speciesId",
+router.get("/species/:speciesId/:order",
     asyncHandler(async (req, res, next) => {
         const speciesId = req.params.speciesId;
-        let books;
+        const order = req.params.order;
+        let orderBy;
+        switch (order) {
+            case 1:
+                orderBy = [["title", "ASC"]]
+                break;
+            case 2:
+                orderBy = [["title", "DESC"]]
+                break;
+            default:
+                break;
+        }
+
+        let booksArr;
         if (speciesId != 0) {
-            books = await Book.findAll({
+            booksArr = await Book.findAll({
                 where: { speciesId: speciesId },
-                order: [["title", "ASC"]],
+                include: [
+                    {model: Author} 
+                ],
+                order: orderBy,
                 limit: 10
             });
         } else {
-            books = await Book.findAll({
-                order: [["title", "ASC"]],
+            booksArr = await Book.findAll({
+                include: [
+                    {model: Author} 
+                ],
+                order: orderBy,
                 limit: 10
         });
         }
+        console.log(booksArr)
+        const books = {}
+        booksArr.forEach(book => {
+            books[book.id] = book;
+        })
         return res.json({books})
     }));
 

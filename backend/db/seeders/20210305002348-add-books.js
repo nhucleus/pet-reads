@@ -18,6 +18,7 @@ module.exports = {
       publishDate: "2009-09-15",
       speciesId: 1,
       bookCover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347980799l/6332526.jpg",
+      avgRating: 0.00,
     },
     {
       title: "The Ultimate Guide to Cat Psychology, Behaviour, and Communication",
@@ -87,6 +88,7 @@ module.exports = {
       publishDate: "2014-04-08",
       speciesId: 2,
       bookCover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1439665796l/26105736._SX318_.jpg",
+      avgRating: 0.00,
     },
     {
       title: "Harry the Dirty Dog",
@@ -99,6 +101,7 @@ module.exports = {
       publishDate: "2006-01-24",
       speciesId: 1,
       bookCover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348901453l/857448.jpg",
+      avgRating: 0.00,
     },
     ], {});
   },
