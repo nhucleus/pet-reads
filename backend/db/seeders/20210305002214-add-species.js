@@ -9,6 +9,33 @@ module.exports = {
     {
       name: 'Cat',
     },
+    {
+      name: 'Poultry',
+    },
+    {
+      name: 'Cow',
+    },
+    {
+      name: 'Fish',
+    },
+    {
+      name: 'Spider',
+    },
+    {
+      name: 'Reptile & Amphibian',
+    },
+    {
+      name: 'Bird',
+    },
+    {
+      name: 'Horse',
+    },
+    {
+      name: 'Rabbit'  
+    }
+    
+    
+    
     ], {});
   },
 

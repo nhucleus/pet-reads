@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
 import HomePage from "./components/HomePage";
 import SideNav from "./components/SideNav";
+import BookPage from "./components/BookPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/profile">
             {!user && <Redirect to="/"/>}
+          </Route>
+          <Route path="/book/:id">
+            <BookPage />
           </Route>
         </Switch>
       )}

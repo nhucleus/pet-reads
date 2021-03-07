@@ -15,8 +15,8 @@
 
 .book-card-cover {
   margin: 10px 10px;
-  width: 150px;
-  height: 200px;
+  max-width: 230px;
+  max-height: 200px;
   border: 1px solid rgb(225, 225, 225);
 }
 
@@ -26,10 +26,14 @@
 
 .book-card-title {
   margin-top: 0px;
-  height: 60px;
   display: flex;
+  height: 55px;
   align-items: center;
   font-weight: bold;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   color: rgb(41, 41, 41);
 }
 

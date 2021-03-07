@@ -18,6 +18,7 @@
   justify-content: center;
   align-items: center;
   background-color: #128ced;
+  z-index: 3;
 }
 
 .sort-nav-title {
@@ -92,6 +93,7 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .sort-menu-option:hover {
@@ -99,16 +101,16 @@
 }
 
 .sort-menu-content.closed {
-  display: none
+  display: none;
 }
 
 .sort-menu-overlay.closed {
-  display: none
+  display: none;
 }
 
 .sort-menu-overlay {
   position: fixed;
-  background-color: rgba(0,0,0,0.15);
+  background-color: rgba(0, 0, 0, 0.15);
   top: 0;
   right: 0;
   left: 0;

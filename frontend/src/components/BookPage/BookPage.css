@@ -1,0 +1,57 @@
+.book-page-container {
+  width: 800px;
+  max-width: 800px;
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.book-page-info {
+  display: flex;
+}
+
+.book-page-info-left {
+}
+
+.book-page-cover {
+}
+
+.book-page-cover-image {
+  margin: 10px 10px;
+  max-width: 330px;
+  max-height: 300px;
+  border: 1px solid rgb(225, 225, 225);
+}
+
+.book-page-info-right {
+  margin: 10px 20px 10px 30px;
+  padding: 20px 20px;
+  border: 1px solid rgba(240, 240, 240, 0.863);
+  border-radius: 7px;
+  background-color: rgba(240, 240, 240, 0.863);
+}
+
+.book-page-title {
+  font-size: 30px;
+  padding-bottom: 15px;
+  font-weight: bold;
+}
+
+.book-page-author {
+  font-size: 20px;
+  font-style: italic;
+  padding-bottom: 5px;
+}
+
+.book-page-species {
+  font-size: 15px;
+  color: rgb(170, 170, 170);
+  padding-bottom: 20px;
+}
+
+.book-page-description {
+}
+
+.book-page-reviews {
+}
