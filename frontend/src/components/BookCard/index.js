@@ -1,24 +1,21 @@
 import "./BookCard.css";
-import { GiFeline } from "react-icons/gi";
-import { GiSittingDog } from "react-icons/gi";
-import { GiHorseHead } from "react-icons/gi";
-import { GiRat } from "react-icons/gi";
-import { GiRabbit } from "react-icons/gi";
-import { GiAquarium } from "react-icons/gi";
-// import { GiFinch } from "react-icons/gi";
-import { GiFrog } from "react-icons/gi";
-import { GiGecko } from "react-icons/gi"; 
-import { GiGoat } from "react-icons/gi";
-// import { GiPeaceDove } from "react-icons/gi";
-import { GiPig } from "react-icons/gi";
-import { GiTortoise } from "react-icons/gi";
-import { GiDuck } from "react-icons/gi";
+// import { GiFeline } from "react-icons/gi";
+// import { GiSittingDog } from "react-icons/gi";
+// import { GiHorseHead } from "react-icons/gi";
+// import { GiRat } from "react-icons/gi";
+// import { GiRabbit } from "react-icons/gi";
+// import { GiAquarium } from "react-icons/gi";
+// import { GiFrog } from "react-icons/gi";
+// import { GiGecko } from "react-icons/gi"; 
+// import { GiGoat } from "react-icons/gi";
+// import { GiPig } from "react-icons/gi";
+// import { GiTortoise } from "react-icons/gi";
+// import { GiDuck } from "react-icons/gi";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import RatingSystem from "../RatingSystem";
 
 const BookCard = ({ book }) => {
     const history = useHistory();
-    const dispatch = useDispatch();
     
     
     return (
@@ -31,6 +28,9 @@ const BookCard = ({ book }) => {
             </div>
             <div className="book-card-author">
                 {book.Author.name}
+            </div>
+            <div className="book-card-rating">
+                <RatingSystem rating={book.avgRating}/>
             </div>
         </div>
 

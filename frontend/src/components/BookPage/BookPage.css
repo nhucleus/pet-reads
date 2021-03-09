@@ -12,6 +12,9 @@
 }
 
 .book-page-info-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .book-page-cover {
@@ -51,6 +54,10 @@
 }
 
 .book-page-description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
 }
 
 .book-page-reviews {

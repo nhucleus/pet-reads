@@ -41,27 +41,20 @@ router.get("/species/:speciesId/:order",
                 limit: 28
         });
         }
-        booksArr.forEach(async (book) => {
+        const books = {};
+        for (let i = 0; i < booksArr.length; i++) {
+            books[booksArr[i].id] = booksArr[i];
             const reviews = await Review.findAll({
-                where: {bookId: book.id}
+                where: {bookId: booksArr[i].id}
             });
-            // console.log(reviews)
             if (reviews.length) {
-            book.reviews = reviews;
+                books[booksArr[i].id].dataValues.reviews = reviews;
+                // const total = reviews.reduce((total, review) => {
+                //     return total + review.rating;
+                // }, 0)
+                // await booksArr[i].update({avgRating: total / reviews.length}); 
             }
-            let total = reviews.reduce((total, review) => {
-                return total + review.rating;
-            }, 0);
-            if (reviews.length) {
-            console.log(total / reviews.length)
-            book.dataValues.avgRating = total / reviews.length; 
-            }
-        });
-        // console.log(booksArr[0]);
-        const books = {}
-        booksArr.forEach(book => {
-            books[book.id] = book;
-        })
+        }
         
         return res.json({ books });
     }));
