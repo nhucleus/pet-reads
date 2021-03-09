@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Book, Author, Species } = require("../../db/models");
+const { Book, Author, Species, Review } = require("../../db/models");
 
 const router = express.Router();
 
@@ -26,7 +26,7 @@ router.get("/species/:speciesId/:order",
                 where: { speciesId: speciesId },
                 include: [
                     {model: Author},
-                    {model: Species}
+                    {model: Species},
                 ],
                 order: orderBy,
                 limit: 10
@@ -35,16 +35,34 @@ router.get("/species/:speciesId/:order",
             booksArr = await Book.findAll({
                 include: [
                     {model: Author},
-                    {model: Species} 
+                    {model: Species}, 
                 ],
                 order: orderBy,
                 limit: 28
         });
         }
+        booksArr.forEach(async (book) => {
+            const reviews = await Review.findAll({
+                where: {bookId: book.id}
+            });
+            // console.log(reviews)
+            if (reviews.length) {
+            book.reviews = reviews;
+            }
+            let total = reviews.reduce((total, review) => {
+                return total + review.rating;
+            }, 0);
+            if (reviews.length) {
+            console.log(total / reviews.length)
+            book.dataValues.avgRating = total / reviews.length; 
+            }
+        });
+        // console.log(booksArr[0]);
         const books = {}
         booksArr.forEach(book => {
             books[book.id] = book;
         })
+        
         return res.json({ books });
     }));
 

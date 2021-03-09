@@ -590,8 +590,7 @@ module.exports = {
       title: "Facts About The Rose Breasted Cockatoo",
       description: `This educational  book presents facts along with full color  photographs and carefully chosen words to teach children about the  Breasted Cockatoo. Packed with facts about  the  Breasted Cockatoo, your children or grandchildren will enjoy learning from start to finish while they read this book.  This book was a pleasure to write, and knowing that children learn from it made it all worthwhile! 
       If you want to learn about the Rose Breasted Cockatoo, you will enjoy this book.  Learn many interesting facts and see some beautiful photographs as the cockatoos are seen in their homes.  The gorgeous photographs will keep your child engaged from beginning to end.  Included in the paperback version are some coloring pages for your child! 
-      Note: This book is suitable for children 5  years or age and older, although younger children will enjoy it if you share it with them.
-      Grab your copy NOW by clicking the buy button at the top right of the page. `,
+      Note: This book is suitable for children 5  years or age and older, although younger children will enjoy it if you share it with them.`,
       pageCount: 41,
       authorId: 26,
       publisher: "N/A",
