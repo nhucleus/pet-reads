@@ -1,10 +1,7 @@
 .book-page-container {
   width: 800px;
   max-width: 800px;
-  position: absolute;
-  top: 75px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 75px auto;
 }
 
 .book-page-info {
@@ -13,6 +10,7 @@
 
 .book-page-info-left {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
 }
@@ -61,4 +59,7 @@
 }
 
 .book-page-reviews {
+  width: 100%; 
+  margin-top: 40px;
+  border-top: 1px solid rgb(170, 170, 170);
 }

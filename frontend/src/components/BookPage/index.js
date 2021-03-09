@@ -41,7 +41,18 @@ const BookPage = () => {
         </div>
       </div>
       }
-      <div className="book-page-reviews">Reviews Placeholder</div>
+      <div className="book-page-reviews">
+        {book && book.reviews.map((review) => {
+          return (
+          <div className="review-container">
+            <div className="review-username">{review.User.username}</div>
+            <div className="review-date">{new Date(review.createdAt).toString()}</div>
+            <div className="review-rating">{review.rating}</div>
+            <div className="review-body">{review.body}</div>
+          </div>
+          )
+        })}
+      </div>
     
     </div>
   );

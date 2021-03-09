@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Book, Author, Species, Review } = require("../../db/models");
+const { Book, Author, Species, Review, User } = require("../../db/models");
 
 const router = express.Router();
 
@@ -25,8 +25,8 @@ router.get("/species/:speciesId/:order",
             booksArr = await Book.findAll({
                 where: { speciesId: speciesId },
                 include: [
-                    {model: Author},
-                    {model: Species},
+                    { model: Author },
+                    { model: Species },
                 ],
                 order: orderBy,
                 limit: 10
@@ -34,44 +34,52 @@ router.get("/species/:speciesId/:order",
         } else {
             booksArr = await Book.findAll({
                 include: [
-                    {model: Author},
-                    {model: Species}, 
+                    { model: Author },
+                    { model: Species },
                 ],
                 order: orderBy,
                 limit: 28
-        });
+            });
         }
         const books = {};
         for (let i = 0; i < booksArr.length; i++) {
             books[booksArr[i].id] = booksArr[i];
-            const reviews = await Review.findAll({
-                where: {bookId: booksArr[i].id}
-            });
-            if (reviews.length) {
-                books[booksArr[i].id].dataValues.reviews = reviews;
-                // const total = reviews.reduce((total, review) => {
-                //     return total + review.rating;
-                // }, 0)
-                // await booksArr[i].update({avgRating: total / reviews.length}); 
-            }
+            // const reviews = await Review.findAll({
+            //     where: { bookId: booksArr[i].id }
+            // });
+            // if (reviews.length) {
+            //     books[booksArr[i].id].dataValues.reviews = reviews;
+            // const total = reviews.reduce((total, review) => {
+            //     return total + review.rating;
+            // }, 0)
+            // await booksArr[i].update({avgRating: total / reviews.length}); 
+            // }
         }
-        
+
         return res.json({ books });
     }));
 
-    router.get("/:id",
-    asyncHandler(async (req, res, next) => { 
+router.get("/:id",
+    asyncHandler(async (req, res, next) => {
         const id = req.params.id;
+        const reviews = await Review.findAll({
+            where: { bookId: id },
+            include: [
+                { model: User }
+            ]
+        });
         const book = await Book.findOne({
             where: { id },
             include: [
-                    {model: Author},
-                    {model: Species} 
-                ],
+                { model: Author },
+                { model: Species }
+            ],
         });
+        if (reviews.length) {
+            book.dataValues.reviews = reviews;
+        }
         return res.json({ book });
     }));
 
-    module.exports = router;
+module.exports = router;
 
-    
