@@ -3,6 +3,7 @@ import { fetch } from './csrf.js';
 const LOAD_SPECIES_BOOKS = "books/loadSpeciesBooks";
 const LOAD_SORT_ORDER = "books/loadSortOrder";
 const LOAD_CURRENT_BOOK = "books/loadCurrentBook";
+const LOAD_REVIEW = "books/loadReview";
 
 const loadSpeciesBooks = (books) => ({
     type: LOAD_SPECIES_BOOKS,
@@ -12,6 +13,11 @@ const loadSpeciesBooks = (books) => ({
 const loadCurrentBook = (book) => ({
   type: LOAD_CURRENT_BOOK,
   payload: book
+});
+
+const loadReview = (review, avgRating) => ({
+  type: LOAD_REVIEW,
+  payload: {review, avgRating}
 });
 
 export const changeSortOrder = (order) => ({
@@ -29,6 +35,18 @@ export const fetchBookInfo = (id) => async (dispatch) => {
   dispatch(loadCurrentBook(res.data.book));
 };
 
+export const createReview = (bookId, userId, rating, review) => async (dispatch) => {
+  const data = {userId, rating, review}
+  const res = await fetch(`/api/books/${bookId}`, 
+    {
+      method: 'POST',
+      body: JSON.stringify(data)
+    }
+  );
+
+  dispatch(loadReview(res.data.review, res.data.avgRating));
+};
+
 const initialState = { list: {}, order: 1, current: null };
 
 function reducer(state = initialState, action) {
@@ -42,6 +60,13 @@ function reducer(state = initialState, action) {
       return newState;
     case LOAD_CURRENT_BOOK:
       newState = Object.assign({}, state, { current: action.payload});
+      return newState;
+    case LOAD_REVIEW:
+      newState = Object.assign({}, state);
+      console.log(action.payload);
+
+      newState.current.reviews = {...newState.current.reviews, [action.payload.review.userId]: action.payload.review};
+      newState.current = {...newState.current, avgRating: action.payload.avgRating}
       return newState;
     default:
       return state;

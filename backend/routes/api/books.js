@@ -62,7 +62,7 @@ router.get("/species/:speciesId/:order",
 router.get("/:id",
     asyncHandler(async (req, res, next) => {
         const id = req.params.id;
-        const reviews = await Review.findAll({
+        const reviewsArr = await Review.findAll({
             where: { bookId: id },
             include: [
                 { model: User }
@@ -75,11 +75,47 @@ router.get("/:id",
                 { model: Species }
             ],
         });
-        if (reviews.length) {
+            const reviews = {};
+            reviewsArr.forEach(review => {
+                reviews[review.userId] = review;
+            })
             book.dataValues.reviews = reviews;
-        }
+
         return res.json({ book });
     }));
 
+router.post("/:id", 
+    asyncHandler(async (req, res, next) => {
+        const id = req.params.id;   
+        const {userId, review, rating} = req.body;
+        const newReview = await Review.create({
+            userId,
+            bookId: id,
+            rating,
+            body: review
+        })
+        console.log(newReview)
+        const reviews = await Review.findAll({
+            where: { bookId: id },
+        });
+        const book = await Book.findOne({
+            where: { id },
+        });
+        const reviewFull = await Review.findOne({
+            where: {
+                id: newReview.id
+            }, 
+            include: [
+                { model: User }
+            ]
+        })
+        const total = reviews.reduce((total, review) => {
+                return total + review.rating;
+            }, 0);
+        
+        await book.update({avgRating: total / reviews.length});
+
+        return res.json({review: reviewFull, avgRating: book.avgRating})
+    }));
 module.exports = router;
 

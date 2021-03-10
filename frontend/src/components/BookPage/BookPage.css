@@ -107,11 +107,12 @@
 .review-container {
   margin-bottom: 20px;
   padding-bottom: 18px;
-  border-bottom: 1px solid rgb(210,210,210);
+  border-bottom: 1px solid rgb(170, 170, 170);
 }
 
 .reviews-title {
   padding-top: 15px;
+  padding-bottom: 15px;
   font-size: 20px;
   font-weight: 600;
   text-align: center;
@@ -135,4 +136,50 @@
 
 .read-more-text:hover {
   text-decoration: underline;
+}
+
+.new-review-rating {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+.new-review-header {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-top: 10px;
+}
+
+.new-review-body-text {
+  font-family: inherit;
+  border-radius: 0px;
+  resize: none;
+  outline: none;
+  width: 100%;
+}
+
+.new-review-body-text:focus {
+  margin: -1px;
+  border: 2px solid #128ced;
+}
+
+.new-review-book-title {
+  font-weight: 600;
+  font-style: italic;
+}
+
+.review-submit-button {
+  border: 1px solid #ef6c00;
+  background-color: #ef6c00;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  height: 37px;
+  width: 50%;
+  margin: 10px 200px;
+  border-radius: 6px;
+  line-height: 33px;
+  cursor: pointer;
 }
