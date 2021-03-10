@@ -1,4 +1,5 @@
-import { IoPawOutline, IoPaw } from "react-icons/io5"
+import "./RatingSystem.css";
+import { IoPawOutline, IoPaw } from "react-icons/io5";
 
 const RatingSystem = ({ rating }) => {
   return (

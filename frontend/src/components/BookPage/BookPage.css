@@ -15,6 +15,10 @@
   align-items: center;
 }
 
+.book-page-bookshelf {
+  margin-bottom: 40px;
+}
+
 .book-page-cover {
 }
 
@@ -22,7 +26,8 @@
   margin: 10px 10px;
   max-width: 330px;
   max-height: 300px;
-  border: 1px solid rgb(225, 225, 225);
+  -webkit-box-shadow: 5px 5px 15px 3px rgba(0,0,0,0.17); 
+  box-shadow: 5px 5px 15px 3px rgba(0,0,0,0.17);
 }
 
 .book-page-info-right {
@@ -31,6 +36,7 @@
   border: 1px solid rgba(240, 240, 240, 0.863);
   border-radius: 7px;
   background-color: rgba(240, 240, 240, 0.863);
+  position: relative;
 }
 
 .book-page-title {
@@ -58,8 +64,75 @@
   -webkit-box-orient: vertical;
 }
 
+.book-page-description.read-more {
+  overflow: visible;
+  display: block;
+}
+
 .book-page-reviews {
   width: 100%; 
   margin-top: 40px;
   border-top: 1px solid rgb(170, 170, 170);
+}
+
+.review-top {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+
+.review-rating .paw {
+  font-size: 16px;
+  margin: 0px 2px;
+}
+
+.review-user-name-text {
+  font-weight: bold;
+}
+
+.review-username-rated-it  {
+  margin-left: 4px;
+  margin-right: 8px;
+  color: rgb(60, 60, 60);
+}
+
+.review-top-left {
+  display: flex;
+}
+
+.review-date {
+  color: rgb(191, 191, 191);
+}
+
+.review-container {
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgb(210,210,210);
+}
+
+.reviews-title {
+  padding-top: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.book-card-rating.book-page {
+  position: relative;
+}
+
+.review-container.no-review-text {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.read-more-text {
+  cursor: pointer;
+  margin-top: 5px;
+  display: inline-block;
+  color: rgb(33, 80, 150);
+}
+
+.read-more-text:hover {
+  text-decoration: underline;
 }

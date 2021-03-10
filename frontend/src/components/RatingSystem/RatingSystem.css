@@ -1,0 +1,10 @@
+.paw {
+  font-size: 28px;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: #ef6c00;
+}
+
+.paw.filled {
+  color: #ef6c00;
+}
