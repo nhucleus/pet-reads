@@ -29,7 +29,7 @@ router.get("/species/:speciesId/:order",
                     { model: Species },
                 ],
                 order: orderBy,
-                limit: 10
+                limit: 28
             });
         } else {
             booksArr = await Book.findAll({
