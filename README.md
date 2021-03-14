@@ -125,8 +125,6 @@ See the [open issues](https://github.com/nhucleus/pet-reads/issues) for a list o
 
 Nhu-y Phan - [EMAIL](mailto:nhucleus@gmail.com)
 
-<br>
-
 James Monaco - [EMAIL](mailto:monaco.james18@gmail.com)
 
 Project Link: [https://github.com/nhucleus/pet-reads](https://github.com/nhucleus/pet-reads)
