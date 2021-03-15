@@ -20,6 +20,8 @@
   font-family: "Chewy", cursive;
   font-size: 25px;
   letter-spacing: 1px;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-link {
@@ -60,11 +62,6 @@
 
 .navbar-link a:hover:active {
   color: rgb(225, 225, 225, 0.726);
-}
-
-.navbar-title {
-  display: flex;
-  align-items: center;
 }
 
 .navbar-title-container:hover {

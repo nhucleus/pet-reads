@@ -72,6 +72,7 @@ PetReads, a [Goodreads](https://www.goodreads.com/) clone, is an application int
 
 * [React.js](https://reactjs.org/)
 * [Express](https://expressjs.com/)
+* [Node.js](https://nodejs.org/en/)
 
 
 
@@ -127,7 +128,7 @@ Nhu-y Phan - [EMAIL](mailto:nhucleus@gmail.com)
 
 James Monaco - [EMAIL](mailto:monaco.james18@gmail.com)
 
-Project Link: [https://github.com/nhucleus/pet-reads](https://github.com/nhucleus/pet-reads)
+Project Link: [https://petreads.herokuapp.com](https://petreads.herokuapp.com)
 
 
 
