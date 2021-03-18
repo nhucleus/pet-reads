@@ -4,6 +4,9 @@ const LOAD_SPECIES_BOOKS = "books/loadSpeciesBooks";
 const LOAD_SORT_ORDER = "books/loadSortOrder";
 const LOAD_CURRENT_BOOK = "books/loadCurrentBook";
 const LOAD_REVIEW = "books/loadReview";
+const LOAD_STATUS = "books/loadStatus";
+const REMOVE_STATUS = "books/removeStatus";
+const CHANGE_STATUS = "books/changeStatus";
 
 const loadSpeciesBooks = (books) => ({
     type: LOAD_SPECIES_BOOKS,
@@ -13,6 +16,20 @@ const loadSpeciesBooks = (books) => ({
 const loadCurrentBook = (book) => ({
   type: LOAD_CURRENT_BOOK,
   payload: book
+});
+
+const loadUserBookStatus = (status) => ({
+  type: LOAD_STATUS,
+  payload: status
+});
+
+const removeStatus = () => ({
+  type: REMOVE_STATUS,
+});
+
+const changeStatus = (status) => ({
+  type: CHANGE_STATUS,
+  payload: status
 });
 
 const loadReview = (review, avgRating) => ({
@@ -30,9 +47,13 @@ export const fetchSpeciesBooks = (speciesId, order) => async (dispatch) => {
   dispatch(loadSpeciesBooks(res.data.books));
 };
 
-export const fetchBookInfo = (id) => async (dispatch) => {
-  const res = await fetch(`/api/books/${id}`);
+export const fetchBookInfo = (bookId, userId) => async (dispatch) => {
+  const res = await fetch(`/api/books/${bookId}`);
   dispatch(loadCurrentBook(res.data.book));
+  const res2 = await fetch(`/api/books/${bookId}/${userId}`);
+  if (res2.data.userBookStatus) {
+    dispatch(loadUserBookStatus(res2.data.userBookStatus));
+  }
 };
 
 export const createReview = (bookId, userId, rating, review) => async (dispatch) => {
@@ -43,9 +64,28 @@ export const createReview = (bookId, userId, rating, review) => async (dispatch)
       body: JSON.stringify(data)
     }
   );
-
   dispatch(loadReview(res.data.review, res.data.avgRating));
-};
+}
+
+export const removeFromShelf = (bookId, userId) => async (dispatch) => {
+  const res = await fetch(`/api/books/${bookId}/${userId}`, 
+    {
+      method: 'DELETE',
+    }
+  );
+  dispatch(removeStatus());
+}
+
+export const addToShelf = (bookId, userId, status) => async (dispatch) => {
+  const res = await fetch(`/api/books/${bookId}/${userId}`, 
+    {
+      method: 'PUT',
+      body: JSON.stringify({ status })
+    }
+  );
+  dispatch(changeStatus(status));
+}
+
 
 const initialState = { list: {}, order: 1, current: null };
 
@@ -61,10 +101,22 @@ function reducer(state = initialState, action) {
     case LOAD_CURRENT_BOOK:
       newState = Object.assign({}, state, { current: action.payload});
       return newState;
+    case LOAD_STATUS:
+      newState = Object.assign({}, state);
+      newState.current = {...newState.current, status: action.payload}
+      return newState;
+    case REMOVE_STATUS:
+      newState = Object.assign({}, state);
+      newState.current = {...newState.current};
+      delete newState.current.status;
+      return newState;
+    case CHANGE_STATUS:
+      newState = Object.assign({}, state);
+      newState.current = {...newState.current, status: action.payload};
+      return newState;
     case LOAD_REVIEW:
       newState = Object.assign({}, state);
       console.log(action.payload);
-
       newState.current.reviews = {...newState.current.reviews, [action.payload.review.userId]: action.payload.review};
       newState.current = {...newState.current, avgRating: action.payload.avgRating}
       return newState;

@@ -17,6 +17,80 @@
 
 .book-page-bookshelf {
   margin-bottom: 40px;
+  width: 180px;
+  height: 35px;
+  border: 1px solid #1f78c0;
+  position: relative;
+  display: flex;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.book-page-bookshelf-button {
+  width: 80%;
+  height: 100%;
+  border-right: 1px solid #1f78c0;
+  background-color: #128ced;
+  transition-property: background-color;
+  transition-duration: 0.15s;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.book-page-bookshelf-button.on-shelf:hover {
+  transition-property: background-color;
+  transition-duration: 0.15s;
+  background-color: rgb(150, 1, 1);
+}
+
+.book-page-bookshelf-button.off-shelf:hover {
+  background-color: #0f6bb6;
+}
+
+.book-page-bookshelf-arrow {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #128ced;
+}
+
+.book-page-bookshelf-arrow:hover {
+  background-color: #0f6bb6;
+}
+
+.book-page-bookshelf-menu.hidden {
+  display: none;
+}
+
+.book-page-bookshelf-menu {
+  position: absolute;
+  background-color: white;
+  width: 180px;
+  height: 105px;
+  border: 1px solid #1f78c0;
+  top: 33px;
+  left: -1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #128ced;
+  color: white;
+}
+
+.bookshelf-menu-option {
+  padding-left: 15px;
+  font-weight: 600;
+  color: white;
+  line-height: 35px;
+}
+
+.bookshelf-menu-option:hover {
+  background-color: #0f6bb6;
 }
 
 .book-page-cover {
@@ -26,8 +100,8 @@
   margin: 10px 10px;
   max-width: 330px;
   max-height: 300px;
-  -webkit-box-shadow: 5px 5px 15px 3px rgba(0,0,0,0.17); 
-  box-shadow: 5px 5px 15px 3px rgba(0,0,0,0.17);
+  -webkit-box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.17);
+  box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.17);
 }
 
 .book-page-info-right {
@@ -70,7 +144,7 @@
 }
 
 .book-page-reviews {
-  width: 100%; 
+  width: 100%;
   margin-top: 40px;
   border-top: 1px solid rgb(170, 170, 170);
 }
@@ -90,7 +164,7 @@
   font-weight: bold;
 }
 
-.review-username-rated-it  {
+.review-username-rated-it {
   margin-left: 4px;
   margin-right: 8px;
   color: rgb(60, 60, 60);
@@ -182,4 +256,33 @@
   border-radius: 6px;
   line-height: 33px;
   cursor: pointer;
+}
+
+.menu-overlay.closed {
+  display: none;
+}
+
+.menu-overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.bookshelf-arrow {
+  font-weight: 600;
+  color: #f8d81c;
+  transform: rotate(180deg);
+  transition-property: transform;
+  font-size: 25px;
+  display: flex;
+  align-self: center;
+}
+
+.bookshelf-arrow.closed {
+  transform: rotate(0deg);
+  transition-property: transform;
 }

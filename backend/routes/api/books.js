@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Book, Author, Species, Review, User } = require("../../db/models");
+const { Book, Author, Species, Review, User, UserBook } = require("../../db/models");
 
 const router = express.Router();
 
@@ -83,6 +83,65 @@ router.get("/:id",
 
         return res.json({ book });
     }));
+
+router.get("/:bookId/:userId",
+    asyncHandler(async (req, res, next) => { 
+        const bookId = req.params.bookId;
+        const userId = req.params.userId;
+        const userBook = await UserBook.findOne({
+            where: {
+                bookId,
+                userId
+            }
+        });
+        if (userBook) {
+            return res.json({userBookStatus: userBook.readStatus});
+        } else {
+            return res.json({message: "Not Found"});
+        }
+
+    })
+);
+
+router.delete("/:bookId/:userId",
+    asyncHandler(async (req, res, next) => { 
+        const bookId = req.params.bookId;
+        const userId = req.params.userId;
+        const userBook = await UserBook.findOne({
+            where: {
+                bookId,
+                userId
+            }
+        });
+        await userBook.destroy();
+        return res.json({message: "UserBook deleted"});
+    })
+);
+
+router.put("/:bookId/:userId",
+    asyncHandler(async (req, res, next) => { 
+        const bookId = req.params.bookId;
+        const userId = req.params.userId;
+        const readStatus = req.body.status;
+        const userBook = await UserBook.findOne({
+            where: {
+                bookId,
+                userId
+            }
+        });
+        if (userBook) {
+            await userBook.update({readStatus});
+        } else {
+            const newUserBook = await UserBook.create({
+                bookId,
+                userId,
+                readStatus
+            })
+        }
+        
+        return res.json({message: "UserBook updated"});
+    })
+);
 
 router.post("/:id", 
     asyncHandler(async (req, res, next) => {

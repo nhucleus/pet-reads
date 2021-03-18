@@ -2,9 +2,10 @@ import "./BookPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchBookInfo, createReview } from "../../store/books";
+import { fetchBookInfo, createReview, removeFromShelf, addToShelf } from "../../store/books";
 import RatingSystem from "../RatingSystem";
 import { IoPawOutline, IoPaw } from "react-icons/io5";
+import { FaAngleDown } from "react-icons/fa";
  
 const BookPage = () => {
   const dispatch = useDispatch();
@@ -20,11 +21,27 @@ const BookPage = () => {
   const [paw5, setPaw5] = useState(false);
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
   const [userReview, setUserReview] = useState(false);
+  const [onShelf, setOnShelf] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [loading, setLoading] = useState(false);
   
   useEffect(() => {
-    dispatch(fetchBookInfo(id));
-  }, [id]);
+    if (user) {
+      dispatch(fetchBookInfo(id, user.id));
+    }
+  }, [id, user]);
+
+  useEffect(() => {
+    if (book) {
+      setOnShelf(book.status ? true : false);
+    }
+    if (book && book.status) {
+      setLoading(false);
+    }
+  }, [book])
+ 
 
   useEffect(() => {
     const description = document.querySelector(".book-page-description");
@@ -40,16 +57,54 @@ const BookPage = () => {
     dispatch(createReview(book.id, user.id, rating, review));
   }
 
+  const menuClickHandler = () => {
+    if (onShelf) {
+      dispatch(removeFromShelf(book.id, user.id));
+      setOnShelf(false);
+    } else {
+      dispatch(addToShelf(book.id, user.id, 1));
+      setLoading(true);
+      setOnShelf(true);
+    }
+    setMenuOpen(false);
+  }
+
+  const menuOptionHandler = (status) => {
+    if (book.status === status) {
+      setMenuOpen(false);
+      return;
+    }
+    dispatch(addToShelf(book.id, user.id, status));
+    setLoading(true);
+    setOnShelf(true);
+    setMenuOpen(false);
+  }
+
   return (
     <div className="book-page-container">
       {book && <div className="book-page-info">
         <div className="book-page-info-left">
           <div className="book-page-cover">
-            <img className="book-page-cover-image" src={book.bookCover} />
+            <img draggable={false} className="book-page-cover-image" src={book.bookCover} />
           </div>
           <div className="book-page-bookshelf">
-            BOOKSHELF LINK PLACEHOLDER
+            <div onClick={menuClickHandler} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className={onShelf ? "book-page-bookshelf-button on-shelf" : "book-page-bookshelf-button off-shelf"}>
+              {onShelf && book.status === 1 && !loading && <span>{hover ? "Remove" : "Want to Read"}</span>}
+              {onShelf && book.status === 2 && !loading && <span>{hover ? "Remove" : "Currently Reading"}</span>}
+              {onShelf && book.status === 3 && !loading && <span>{hover ? "Remove" : "Read"}</span>}
+              {!onShelf && <span>Want to Read</span>}
+              {loading && <span>Loading...</span>}
+            </div>
+            <div className="book-page-bookshelf-arrow" onClick={() => setMenuOpen(!menuOpen)}>
+              <FaAngleDown className={menuOpen ? "bookshelf-arrow" : "bookshelf-arrow closed"} />
+            </div>
+            <div className={menuOpen ? "book-page-bookshelf-menu" : "book-page-bookshelf-menu hidden"}>
+              <div onClick={() => menuOptionHandler(1)} className="bookshelf-menu-option">Want to Read</div>
+              <div onClick={() => menuOptionHandler(2)} className="bookshelf-menu-option">Currently Reading</div>
+              <div onClick={() => menuOptionHandler(3)} className="bookshelf-menu-option">Read</div>
+            </div>
           </div>
+          <div className={menuOpen ? "menu-overlay" : "menu-overlay closed"} onClick={() => setMenuOpen(false)}></div>
           <div className="book-card-rating book-page">
                 <RatingSystem rating={book.avgRating}/>
           </div>

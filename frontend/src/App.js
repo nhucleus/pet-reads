@@ -8,6 +8,8 @@ import SplashPage from "./components/SplashPage";
 import HomePage from "./components/HomePage";
 import SideNav from "./components/SideNav";
 import BookPage from "./components/BookPage";
+import ProfilePage from "./components/ProfilePage";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,13 +35,15 @@ function App() {
             {user && <SideNav />}
           </Route>
           <Route path="/profile">
-            {!user && <Redirect to="/"/>}
+            {!user && <Redirect to="/" />}
+            <ProfilePage />
           </Route>
           <Route path="/book/:id">
             <BookPage />
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }

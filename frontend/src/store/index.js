@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import species from "./species";
 import books from "./books";
+import bookshelves from "./bookshelves";
 
 const rootReducer = combineReducers({
   session,
   species,
-  books
+  books,
+  bookshelves
 });
 
 let enhancer;

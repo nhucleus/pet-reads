@@ -22,7 +22,7 @@ const BookCard = ({ book }) => {
         <div className="book-card-container" onClick={() => {
             history.push(`/book/${book.id}`);
         }}>
-            <img className="book-card-cover" src={book.bookCover} />
+            <img draggable={false} className="book-card-cover" src={book.bookCover} />
             <div className="book-card-title">
                 {book.title}
             </div>
