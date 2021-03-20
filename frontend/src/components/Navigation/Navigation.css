@@ -29,7 +29,6 @@
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-weight: bold;
-  cursor: pointer;
   padding: 0px 10px;
   display: flex;
 }
@@ -88,9 +87,14 @@
 .bookshelves-link {
   display: flex;
   align-items: center;
+  margin-right: 20px;
 }
 
 .bookshelves-link span {
-  margin-left: 10px;
-  margin-right: 20px;
+  margin-left: 8px;
+}
+
+.books-icon {
+  font-size: 23px;
+  margin-bottom: 2px;
 }
