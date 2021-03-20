@@ -49,20 +49,21 @@ router.get("/species/:speciesId/:order/:page",
         const books = {};
         for (let i = 0; i < booksArr.length; i++) {
             books[booksArr[i].id] = booksArr[i];
-            // const reviews = await Review.findAll({
-            //     where: { bookId: booksArr[i].id }
-            // });
-            // if (reviews.length) {
-            //     books[booksArr[i].id].dataValues.reviews = reviews;
-            // const total = reviews.reduce((total, review) => {
-            //     return total + review.rating;
-            // }, 0)
-            // await booksArr[i].update({avgRating: total / reviews.length}); 
-            // }
+            const reviews = await Review.findAll({
+                where: { bookId: booksArr[i].id }
+            });
+            if (reviews.length) {
+                books[booksArr[i].id].dataValues.reviews = reviews;
+            const total = reviews.reduce((total, review) => {
+                return total + review.rating;
+            }, 0)
+            await booksArr[i].update({avgRating: total / reviews.length}); 
+            }
         }
 
         return res.json({ books });
     }));
+
 
 router.get("/search/:query",
     asyncHandler(async (req, res, next) => {
