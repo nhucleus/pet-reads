@@ -33,17 +33,18 @@ function App() {
             {!user && <SplashPage />}
             {user && <HomePage />}
             {user && <SideNav />}
+            {user && <Footer />}
           </Route>
-          <Route path="/profile">
+          <Route path="/bookshelves">
             {!user && <Redirect to="/" />}
             <ProfilePage />
+            <Footer />
           </Route>
           <Route path="/book/:id">
             <BookPage />
           </Route>
         </Switch>
       )}
-      <Footer />
     </>
   );
 }

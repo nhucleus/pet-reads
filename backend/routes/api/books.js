@@ -1,12 +1,15 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
+const sequelize = require('sequelize');
+const Op = sequelize.Op;
 const { Book, Author, Species, Review, User, UserBook } = require("../../db/models");
 
 const router = express.Router();
 
-router.get("/species/:speciesId/:order",
+router.get("/species/:speciesId/:order/:page",
     asyncHandler(async (req, res, next) => {
         const speciesId = req.params.speciesId;
+        const page = req.params.page;
         const order = Number(req.params.order);
         let orderBy;
         switch (order) {
@@ -29,7 +32,8 @@ router.get("/species/:speciesId/:order",
                     { model: Species },
                 ],
                 order: orderBy,
-                limit: 28
+                offset: page * 28,
+                limit: 28,
             });
         } else {
             booksArr = await Book.findAll({
@@ -38,6 +42,7 @@ router.get("/species/:speciesId/:order",
                     { model: Species },
                 ],
                 order: orderBy,
+                offset: page * 28,
                 limit: 28
             });
         }
@@ -58,6 +63,25 @@ router.get("/species/:speciesId/:order",
 
         return res.json({ books });
     }));
+
+router.get("/search/:query",
+    asyncHandler(async (req, res, next) => {
+        const query = req.params.query;
+        const results = await Book.findAll({
+            where: {
+                title: {
+                    [Op.iLike]: `%${query}%`
+                }
+            },
+            include: [
+                { model: Author },
+                { model: Species }
+            ],
+            limit: 10
+        });
+        return res.json({results});
+    })
+);
 
 router.get("/:id",
     asyncHandler(async (req, res, next) => {
@@ -176,5 +200,8 @@ router.post("/:id",
 
         return res.json({review: reviewFull, avgRating: book.avgRating})
     }));
+
+
+
 module.exports = router;
 

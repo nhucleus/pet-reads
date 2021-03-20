@@ -47,12 +47,12 @@ const ProfilePage = () => {
           })}
         </div>
       </div>
-      <div className="bookshelf-title">
+      {/* <div className="bookshelf-title">
         Recommended
       </div>
       <div className="recommended-bookshelf bookshelf">
 
-      </div>
+      </div> */}
     </div>
   )
 };

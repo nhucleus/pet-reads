@@ -1,0 +1,75 @@
+.search-bar-container {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.book-search-input {
+  border: none;
+  outline: none;
+  margin-left: 30px;
+  padding-left: 10px;
+  height: 40px;
+  width: 450px;
+  background-color: rgb(250, 250, 250);
+  font-size: 16px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.book-search-input::placeholder {
+  color: rgb(205, 205, 205);
+}
+
+.search-results-container {
+  position: absolute;
+  left: 30px;
+  border-top: 1px solid rgb(215, 215, 215);
+  z-index: 2;
+}
+
+.search-result {
+  width: 450px;
+  height: 100px;
+  background-color: white;
+  border: 1px solid rgb(215, 215, 215);
+  border-top: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background-color: rgb(249, 212, 190);
+}
+
+.search-result-left {
+  min-width: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-result-right {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  justify-content: space-evenly;
+}
+
+.search-result-cover {
+  max-height: 90px;
+  max-width: 90px;
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.search-result-title {
+  max-width: 320px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+.search-result-author {
+  font-style: italic;
+}

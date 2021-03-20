@@ -1,9 +1,11 @@
 .signup__div_container {
   width: 100%;
   background-attachment: absolute;
-  background: url(puppies.png);
-  background-size: cover;
-  background-position: top;
+  background: url("https://i0.wp.com/planitbusiness.com/wp-content/uploads/2017/03/Pets.jpg?fit=3643%2C1151&ssl=1");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: white;
   top: 48px;
   left: 0;
   bottom: 0;
@@ -16,20 +18,61 @@
 }
 
 .signup__form_container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-flow: column;
-  align-items: center;
-  height: 45vh;
-  width: 50vh;
-  border-radius: 20%;
-  background: rgba(255, 255, 255, 0.7);
-}
-
-.signup__form_container label {
-  display: flex;
-  padding-bottom: 10px;
+  flex-direction: column;
+  text-align: center;
 }
 
 .signup__form_container button {
-  height: 4vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #ef6c00;
+  height: 40px;
+  line-height: 40px;
+  width: auto;
+  margin: 10px 0px;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+}
+
+.signup__form_container:hover button {
+  background-color: #f78629;
+}
+
+.signup__form_container:active button {
+  background-color: #fc8a2db6;
+}
+
+.signup-form-input {
+  height: 45px;
+  font-size: 20px;
+  border: 1px solid rgb(164, 164, 164);
+  width: 270px;
+}
+
+.signup-form-input:focus {
+  border: 1px solid #f8d81c;
+}
+
+.signup-form-input::placeholder {
+  text-align: center;
+}
+
+.signup__form_container h1 {
+  font-family: "Chewy", cursive;
+  color: #ef6c00;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 65px;
+  letter-spacing: 1px;
 }

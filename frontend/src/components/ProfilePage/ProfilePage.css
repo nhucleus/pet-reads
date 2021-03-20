@@ -11,7 +11,7 @@
   width: 100%;
   margin-bottom: 20px;
   background-color: rgb(245, 245, 245);
-  border-radius: 7px;
+  border-radius: 10px;
   height: 430px;
   display: flex;
   align-items: center;
@@ -26,10 +26,8 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: #ef6c00;        /* color of the tracking area */
+  background: #ef6c00; /* color of the tracking area */
 }
-
-
 
 .bookshelf .book-card-container {
   margin-bottom: 0px;

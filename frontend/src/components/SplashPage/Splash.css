@@ -1,10 +1,11 @@
 .splash-container {
   width: 100%;
   background-attachment: absolute;
-  background: url(splash.jpg);
-  background-size: cover;
-  background-position: center center;
+  background: url("https://i0.wp.com/planitbusiness.com/wp-content/uploads/2017/03/Pets.jpg?fit=3643%2C1151&ssl=1");
+  background-position: center bottom;
   background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: white;
   top: 48px;
   left: 0;
   bottom: 0;
@@ -27,9 +28,16 @@
   letter-spacing: 1px;
 }
 
+.splash-login-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .splash-slogan {
-  width: 225px;
-  word-wrap: break-word;
+  width: 250px;
+  padding-left: 35px;
   text-align: center;
 }
 
@@ -52,6 +60,14 @@
   margin: 10px 0px;
   border-radius: 7px;
   cursor: pointer;
+}
+
+.splash-login-link:hover {
+  background-color: #f78629;
+}
+
+.splash-login-link:active {
+  background-color: #fc8a2db6;
 }
 
 .splash-input {

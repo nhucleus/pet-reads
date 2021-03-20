@@ -7,6 +7,9 @@ const LOAD_REVIEW = "books/loadReview";
 const LOAD_STATUS = "books/loadStatus";
 const REMOVE_STATUS = "books/removeStatus";
 const CHANGE_STATUS = "books/changeStatus";
+const LOAD_SEARCH_RESULTS = 'books/loadSearchResults';
+const CLEAR_SEARCH_RESULTS = 'books/clearSearchResults';
+const CLEAR_FEED = 'books/clearFeed';
 
 const loadSpeciesBooks = (books) => ({
     type: LOAD_SPECIES_BOOKS,
@@ -42,8 +45,21 @@ export const changeSortOrder = (order) => ({
   payload: order
 });
 
-export const fetchSpeciesBooks = (speciesId, order) => async (dispatch) => {
-  const res = await fetch(`/api/books/species/${speciesId}/${order}`);
+export const clearFeed = () => ({
+  type: CLEAR_FEED
+});
+
+const loadSearchResults = (books) => ({
+    type: LOAD_SEARCH_RESULTS,
+    payload: books
+});
+
+export const clearSearchResults = () => ({
+    type: CLEAR_SEARCH_RESULTS,
+});
+
+export const fetchSpeciesBooks = (speciesId, order, page) => async (dispatch) => {
+  const res = await fetch(`/api/books/species/${speciesId}/${order}/${page}`);
   dispatch(loadSpeciesBooks(res.data.books));
 };
 
@@ -86,14 +102,20 @@ export const addToShelf = (bookId, userId, status) => async (dispatch) => {
   dispatch(changeStatus(status));
 }
 
+export const searchForBooks = (query) => async (dispatch) => {
+  const res = await fetch(`/api/books/search/${query}`);
+  dispatch(loadSearchResults(res.data.results));
+}
 
-const initialState = { list: {}, order: 1, current: null };
+
+const initialState = { list: {}, order: 1, current: null, search: [] };
 
 function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
     case LOAD_SPECIES_BOOKS:
-      newState = Object.assign({}, state, { list: action.payload });
+      newState = Object.assign({}, state);
+      newState.list = {...newState.list, ...action.payload}
       return newState;
     case LOAD_SORT_ORDER:
       newState = Object.assign({}, state, { order: action.payload });
@@ -119,6 +141,15 @@ function reducer(state = initialState, action) {
       console.log(action.payload);
       newState.current.reviews = {...newState.current.reviews, [action.payload.review.userId]: action.payload.review};
       newState.current = {...newState.current, avgRating: action.payload.avgRating}
+      return newState;
+    case LOAD_SEARCH_RESULTS:
+      newState = Object.assign({}, state, { search: action.payload });
+      return newState;
+    case CLEAR_SEARCH_RESULTS:
+      newState = Object.assign({}, state, { search: [] });
+      return newState;
+    case CLEAR_FEED:
+      newState = Object.assign({}, state, { list: {} });
       return newState;
     default:
       return state;

@@ -14,13 +14,8 @@ const SideNav = () => {
         dispatch(fetchSpeciesList());
     }, []);
 
-    useEffect(() => {
-        dispatch(fetchSpeciesBooks(currentSpecies.id, order))
-    }, [order]);
-
     const changeSpecies = (species) => {
-        dispatch(setSpecies(species))
-        dispatch(fetchSpeciesBooks(species.id, order))
+        dispatch(setSpecies(species));
     };
 
     const [menuOpen, setMenuOpen] = useState(false);
