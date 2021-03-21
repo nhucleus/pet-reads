@@ -36,7 +36,6 @@ router.get("/:userId",
                 break;
         }
     });
-    console.log(userBooks)
     return res.json(userBooks);
 
   })

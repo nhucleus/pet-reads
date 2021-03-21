@@ -177,7 +177,6 @@ router.post("/:id",
             rating,
             body: review
         })
-        console.log(newReview)
         const reviews = await Review.findAll({
             where: { bookId: id },
         });

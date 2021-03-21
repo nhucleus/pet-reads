@@ -12,7 +12,6 @@ const Search = () => {
   const [menuOpen, setMenuOpen] = useState(false); 
 
     useEffect(() => {
-      console.log(query);
         if (query) {
             setMenuOpen(true);
             dispatch(searchForBooks(query));
