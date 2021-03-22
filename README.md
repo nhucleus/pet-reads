@@ -58,14 +58,24 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![User Feed][product-screenshot]](http://petreads.herokuapp.com/)
+<p align="center">
+  <a href="https://github.com/nhucleus/pet-reads">
+    <img src="http://serenityapp.s3.amazonaws.com/petreads.herokuapp.com_.png" alt="Feed" width="580" height="400">
+  </a>
+<br><br>
 
 PetReads, a [Goodreads](https://www.goodreads.com/) clone, is an application integrated with [Chewy's](https://www.chewy.com/) UI design that allows users to share pet-related books, leave reviews, and add books to their bookshelves (_want to read_, _have read_, and _currently reading_).
 
 <br><br>
-[![Dashboard/Books][books-screenshot]](http://petreads.herokuapp.com/)
+<p align="center">
+  <a href="https://github.com/nhucleus/pet-reads">
+    <img src="http://serenityapp.s3.amazonaws.com/petreads.herokuapp.com_book_9_1.png" alt="Book" width="580" height="400">
+  </a>
 <br><br>
-[![User Profile][profile-screenshot]](http://petreads.herokuapp.com/)
+<p align="center">
+  <a href="https://github.com/nhucleus/pet-reads">
+    <img src="http://serenityapp.s3.amazonaws.com/petreads.herokuapp.com_bookshelves.png" alt="Bookshelves" width="580" height="400">
+  </a>
 
 
 ### Built With
@@ -144,6 +154,3 @@ Project Link: [https://petreads.herokuapp.com](https://petreads.herokuapp.com)
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/nhu-yphan/
 [linkedin-url2]: https://www.linkedin.com/in/james-monaco-770127175/
-[product-screenshot]: images/splash.png
-[books-screenshot]: images/books.png
-[profile-screenshot]: images/profile.png
