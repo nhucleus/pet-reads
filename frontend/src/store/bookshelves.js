@@ -18,7 +18,6 @@ function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
     case LOAD_BOOKSHELVES:
-      console.log(action.payload)
       newState = Object.assign({}, state, action.payload); 
       return newState;
     default:

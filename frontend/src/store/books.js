@@ -138,7 +138,6 @@ function reducer(state = initialState, action) {
       return newState;
     case LOAD_REVIEW:
       newState = Object.assign({}, state);
-      console.log(action.payload);
       newState.current.reviews = {...newState.current.reviews, [action.payload.review.userId]: action.payload.review};
       newState.current = {...newState.current, avgRating: action.payload.avgRating}
       return newState;
