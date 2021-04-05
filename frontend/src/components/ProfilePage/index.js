@@ -1,6 +1,6 @@
 import "./ProfilePage.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import BookCard from "../BookCard";
 import { fetchUserBooks } from "../../store/bookshelves";
 
@@ -41,7 +41,7 @@ const ProfilePage = () => {
         Read
       </div>
       <div className="read-bookshelf bookshelf">
-          <div className="bookshelf-row">
+        <div className="bookshelf-row">
           {bookshelves.read && Object.values(bookshelves.read).map(book => {
             return <BookCard book={book.Book} />
           })}
@@ -54,7 +54,7 @@ const ProfilePage = () => {
 
       </div> */}
     </div>
-  )
+  );
 };
 
 export default ProfilePage;
