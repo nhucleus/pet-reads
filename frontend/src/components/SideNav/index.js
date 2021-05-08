@@ -3,7 +3,7 @@ import { FaAngleDown } from "react-icons/fa";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {fetchSpeciesList, setSpecies} from "../../store/species";
-import {fetchSpeciesBooks, changeSortOrder} from "../../store/books";
+import {changeSortOrder} from "../../store/books";
 
 const SideNav = () => {
     const dispatch = useDispatch();
