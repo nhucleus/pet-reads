@@ -12,8 +12,8 @@ const CLEAR_SEARCH_RESULTS = 'books/clearSearchResults';
 const CLEAR_FEED = 'books/clearFeed';
 
 const loadSpeciesBooks = (books) => ({
-    type: LOAD_SPECIES_BOOKS,
-    payload: books
+  type: LOAD_SPECIES_BOOKS,
+  payload: books
 });
 
 const loadCurrentBook = (book) => ({
