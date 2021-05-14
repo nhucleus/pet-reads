@@ -55,7 +55,7 @@ const loadSearchResults = (books) => ({
 });
 
 export const clearSearchResults = () => ({
-    type: CLEAR_SEARCH_RESULTS,
+  type: CLEAR_SEARCH_RESULTS,
 });
 
 export const fetchSpeciesBooks = (speciesId, order, page) => async (dispatch) => {
