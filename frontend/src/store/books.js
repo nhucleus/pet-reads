@@ -50,8 +50,8 @@ export const clearFeed = () => ({
 });
 
 const loadSearchResults = (books) => ({
-    type: LOAD_SEARCH_RESULTS,
-    payload: books
+  type: LOAD_SEARCH_RESULTS,
+  payload: books
 });
 
 export const clearSearchResults = () => ({
