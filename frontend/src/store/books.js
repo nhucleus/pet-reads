@@ -73,15 +73,15 @@ export const fetchBookInfo = (bookId, userId) => async (dispatch) => {
 };
 
 export const createReview = (bookId, userId, rating, review) => async (dispatch) => {
-  const data = {userId, rating, review}
-  const res = await fetch(`/api/books/${bookId}`, 
+  const data = { userId, rating, review }
+  const res = await fetch(`/api/books/${bookId}`,
     {
       method: 'POST',
       body: JSON.stringify(data)
     }
   );
   dispatch(loadReview(res.data.review, res.data.avgRating));
-}
+};
 
 export const removeFromShelf = (bookId, userId) => async (dispatch) => {
   const res = await fetch(`/api/books/${bookId}/${userId}`, 
