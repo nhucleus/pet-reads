@@ -84,13 +84,13 @@ export const createReview = (bookId, userId, rating, review) => async (dispatch)
 };
 
 export const removeFromShelf = (bookId, userId) => async (dispatch) => {
-  const res = await fetch(`/api/books/${bookId}/${userId}`, 
+  const res = await fetch(`/api/books/${bookId}/${userId}`,
     {
       method: 'DELETE',
     }
   );
   dispatch(removeStatus());
-}
+};
 
 export const addToShelf = (bookId, userId, status) => async (dispatch) => {
   const res = await fetch(`/api/books/${bookId}/${userId}`, 
