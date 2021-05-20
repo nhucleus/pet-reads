@@ -93,14 +93,14 @@ export const removeFromShelf = (bookId, userId) => async (dispatch) => {
 };
 
 export const addToShelf = (bookId, userId, status) => async (dispatch) => {
-  const res = await fetch(`/api/books/${bookId}/${userId}`, 
+  const res = await fetch(`/api/books/${bookId}/${userId}`,
     {
       method: 'PUT',
       body: JSON.stringify({ status })
     }
   );
   dispatch(changeStatus(status));
-}
+};
 
 export const searchForBooks = (query) => async (dispatch) => {
   const res = await fetch(`/api/books/search/${query}`);
