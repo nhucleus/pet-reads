@@ -14,9 +14,9 @@ export const setSpecies = (species) => ({
 });
 
 export const fetchSpeciesList = () => async (dispatch) => {
-    const res = await fetch("api/species/list");
-    dispatch(loadSpeciesList(res.data.list));
-}
+  const res = await fetch("api/species/list");
+  dispatch(loadSpeciesList(res.data.list));
+};
 
 const initialState = { list: [], current: {id: 0, name: "All"} };
 

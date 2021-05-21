@@ -105,7 +105,7 @@ export const addToShelf = (bookId, userId, status) => async (dispatch) => {
 export const searchForBooks = (query) => async (dispatch) => {
   const res = await fetch(`/api/books/search/${query}`);
   dispatch(loadSearchResults(res.data.results));
-}
+};
 
 
 const initialState = { list: {}, order: 1, current: null, search: [] };
