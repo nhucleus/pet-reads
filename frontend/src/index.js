@@ -29,7 +29,7 @@ function Root() {
       </BrowserRouter>
     </Provider>
   );
-}
+};
 
 ReactDOM.render(
   <React.StrictMode>
