@@ -9,8 +9,8 @@ const loadSpeciesList = (list) => ({
 });
 
 export const setSpecies = (species) => ({
-    type: LOAD_CURRENT_SPECIES,
-    payload: species
+  type: LOAD_CURRENT_SPECIES,
+  payload: species
 });
 
 export const fetchSpeciesList = () => async (dispatch) => {
