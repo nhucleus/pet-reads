@@ -4,8 +4,8 @@ const LOAD_SPECIES_LIST = "species/loadSpeciesList";
 const LOAD_CURRENT_SPECIES = "species/loadCurrentSpecies";
 
 const loadSpeciesList = (list) => ({
-    type: LOAD_SPECIES_LIST,
-    payload: list
+  type: LOAD_SPECIES_LIST,
+  payload: list
 });
 
 export const setSpecies = (species) => ({
