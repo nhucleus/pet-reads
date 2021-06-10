@@ -1,6 +1,5 @@
 import ReactDOM from "react-dom";
 import "./Modal.css";
-import { RiCloseCircleLine } from "react-icons/ri";
 
 const Modal = ({ open, children, onClose }) => {
   if (!open) return null;
