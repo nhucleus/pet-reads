@@ -40,7 +40,7 @@ const BookPage = () => {
     if (book && book.status) {
       setLoading(false);
     }
-  }, [book])
+  }, [book]);
  
 
   useEffect(() => {
