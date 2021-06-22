@@ -55,7 +55,7 @@ const BookPage = () => {
 
   const handleSubmit = () => {
     dispatch(createReview(book.id, user.id, rating, review));
-  }
+  };
 
   const menuClickHandler = () => {
     if (onShelf) {
