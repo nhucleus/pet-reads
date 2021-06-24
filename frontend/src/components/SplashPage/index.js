@@ -9,7 +9,6 @@ function SplashPage() {
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
-    const [form, setForm] = useState([]);
   
     const handleDemoSubmit = (e) => {
       e.preventDefault();
