@@ -67,7 +67,7 @@ const BookPage = () => {
       setOnShelf(true);
     }
     setMenuOpen(false);
-  }
+  };
 
   const menuOptionHandler = (status) => {
     if (book.status === status) {
