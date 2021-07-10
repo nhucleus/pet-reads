@@ -78,7 +78,7 @@ const BookPage = () => {
     setLoading(true);
     setOnShelf(true);
     setMenuOpen(false);
-  }
+  };
 
   return (
     <div className="book-page-container">
