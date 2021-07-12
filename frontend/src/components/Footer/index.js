@@ -4,7 +4,7 @@ import { AiOutlineLinkedin } from "react-icons/ai";
 import { AiOutlineGithub } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 import Modal from "../Modal";
-import {useState} from "react";
+import { useState } from "react";
 
 const Footer = () => {
   const [modalOpen, setModalOpen] = useState(false);
