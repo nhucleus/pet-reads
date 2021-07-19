@@ -4,14 +4,14 @@ const { Species } = require("../../db/models");
 
 const router = express.Router();
 
-router.get("/list", 
+router.get("/list",
     asyncHandler(async (req, res, next) => {
         const list = await Species.findAll({
             order: [["name", "ASC"]]
         });
-        return res.json({list});
+        return res.json({ list });
     })
-)
+);
 
 
 module.exports = router;
