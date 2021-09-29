@@ -10,6 +10,7 @@ import './SignupForm.css';
 function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +23,7 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, password }))
+      return dispatch(sessionActions.signup({ fullName, email, username, password }))
         .catch(res => {
           if (res.data && res.data.errors) setErrors(res.data.errors);
         });
@@ -36,8 +37,18 @@ function SignupFormPage() {
         <form className="signup__form_container" onSubmit={handleSubmit}>
           <h1>Sign Up</h1>
           <ul>
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
           </ul>
+          <input
+            type="text"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            placeholder="Name"
+            required
+            className="signup-form-input"
+          />
           <input
             type="text"
             value={email}
@@ -71,7 +82,13 @@ function SignupFormPage() {
             className="signup-form-input"
           />
           <button type="submit">Sign Up</button>
-        <p>Already have an account? <NavLink className="splash-link" to="/">Log In</NavLink> here.</p>
+          <p>
+            Already have an account?{" "}
+            <NavLink className="splash-link" to="/">
+              Log In
+            </NavLink>{" "}
+            here.
+          </p>
         </form>
       </div>
     </>
